@@ -1,23 +1,9 @@
-<!-- to do za sledecu verziju:
-1. namestiti razmak izmedju kartica
-2. dugme za boju sredi
-3. iza footera imas neki ostatak diva (vidi se kad promenis boju)
-4. polje za ime
-5. disable dugme
-6. sredi malo uputstvo
-7. dodaj slova i brojeve
-8. proveri credit to.... u footeru, za ikonice 
-9. stavi svuda template string ECMA 6 -->
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Igra memorije</title>
     <meta charset="utf-8">
-    <title>Igra memorije</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -40,38 +26,49 @@
                 <input type="radio" name="nivo" value="teško" onclick="if(this.checked){nova_igra.disabled = false;}"> Teško <br>
                 <br>
                 <br>
+                <label for="vreme">Maksimalni vremenski interval </label>
+                <input type="number" id="sekunde" placeholder="u sekundama..." style="width: 100%">
+                <br>
+                <br>
                 <label for="setSlika">Izaberi kolekciju slika: </label>
                 <select id="setSlika">
-					<option value="dinosaurusi"> Dinosaurusi </option>
-					<option value="bajka" selected> Bajka </option>
-					<option value="morski_zivot"> Morske zivotinje </option>
-					<option value="jurassic"> Jurassic world </option>
-				</select>
+                    <option value="bajka" selected> Bajka </option>
+                    <option value="brojevi"> Brojevi </option>
+                    <option value="cvece"> Cvece </option>
+                    <option value="dinosaurusi"> Dinosaurusi </option>
+                    <option value="jurassic"> Jurassic world </option>
+                    <option value="morski_zivot"> Morske zivotinje </option>
+                    <option value="slova"> Slova</option>
+                    <option value="egipat"> Stari Egipat</option>
+                    <option value="svemir"> Svemir </option>
+                    <option value="zmajevi"> Zmajevi </option>
+                    <option value="znamenitosti"> Svetske znamenitosti </option>
+                </select>
 
                 <br>
                 <br>
                 <label for="ime">Ime igrača </label>
-                <input type="text" id="ime" placeholder="Ime igraca" maxlength="20">
+                <input type="text" id="ime" placeholder="Ime igraca" maxlength="20" style="width: 100%">
                 <br>
                 <br>
-                <button id="nova_igra">Nova igra</button>
+                <button id="nova_igra">Igraj!</button>
                 <br>
                 <br>
-                <div id="dugmeBoja"> Promeni boju pozadine </div>
+
             </div>
             <div id="divNaVrhu" class="col-sm-8 text-left">
                 <h1>IGRA MEMORIJE</h1>
                 <h4>Projekat u vanilla javascript-u u okviru programa IT obuke na MATFu</h4>
-                <br>
+
                 <h3>Opis projekta</h3>
                 <p id="opis">
-                    Igra memorije je igra u kojoj igrač treba da upari slične elemente - dve iste reči, dva ista broja ili dve iste sličice. JavaScript igra memorije je zamišljena kao kvadratna tabla u okviru koje su nasumično raspoređene kartice. Korisnik u jednom potezu
-                    može da otvori tačno dve kartice - ako su u pitanju iste kartice one ostaju prikazane do kraja igre, a ako su u pitanju različite kartice, njihovi sadržaji se ponovo skrivaju. Igra se završava kada sve kartice budu otkrivene ili ako
-                    vreme pre toga istekne. Korisniku se ispisuje ukupan broj poena koje je osvojio tako što se za svaki upareni par dobija po 10 poena.
+                    Igra memorije je igra u kojoj igrač treba da upari slične elemente - dve iste reči, dva ista broja ili dve iste sličice. JavaScript igra memorije je zamišljena kao kvadratna ili pravougaona tabla u okviru koje su nasumično raspoređene kartice. Korisnik
+                    u jednom potezu može da otvori tačno dve kartice - ako su u pitanju iste kartice one ostaju prikazane do kraja igre, a ako su u pitanju različite kartice, njihovi sadržaji se ponovo skrivaju. Igra se završava kada sve kartice budu
+                    otkrivene ili ako vreme pre toga istekne. Korisniku se ispisuje ukupan broj poena koje je osvojio tako što se za svaki upareni par dobija po 10 poena.
                 </p>
                 <hr>
                 <h3>Uputstvo za igru</h3>
-                <div> Da biste počeli igru, potrebno je da izaberete nivo igre.
+                <div> Pre svega, potrebno je da izabereš nivo igre.
                     <br> Mogući nivoi su:
                     <dl>
                         <dt>Lako</dt>
@@ -81,9 +78,12 @@
                         <dt>Teško</dt>
                         <dd>Ukupno 30 sličica se raspoređuje na tablu dimenzija 5x6.</dd>
                     </dl>
+                    Dalje, unesi broj sekundi koliko zelis da ti traje jedna igra.
+                    <br> Opciono, možeš izabrati sličice sa kojima želiš da igraš i ukoliko želiš, možeš upisati svoje ime.
+                    <br> Ukoliko ti se ne sviđa boja pozadine, možeš je promeniti klikom na dugme "Promeni boju pozadine".
+                    <br> <br>U Ž I V A J!
                 </div>
 
-                <hr>
 
             </div>
             <div class="col-sm-2 sidenav">
@@ -91,19 +91,18 @@
                     <p>
                         Preostalo vreme:
                         <br>
-                        <strong id="vreme"></strong> sekundi
+                        <strong id="vreme"></strong> sekunde.
                     </p>
                 </div>
                 <div class="well">
                     <p>Igrač <strong id="igrac"></strong></p>
                     ima poena: <strong id="poeni">0</strong>
                 </div>
+                <button id="dugmeBoja"> Promeni boju pozadine </button>
             </div>
         </div>
         <footer class="container-fluid text-center">
-            <p>Slike kartica preuzete sa sajta made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"
-                    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-            </p>
+            <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </footer>
 </body>
 

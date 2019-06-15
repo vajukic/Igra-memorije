@@ -2,30 +2,28 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.well {
+    position: relative;
+}
+
 .row.content {
     height: 100vh;
     text-align: left;
 }
 
 .sidenav {
-    padding-top: 20px;
+    padding-top: 40px;
     background-color: #f1f1f1;
     height: 100%;
 }
 
-
-/* .divNaVrhu {
-    position: fixed;
-    top: 0px;
-    left: 600px;
-} */
-
 footer {
-    background-color: lightcoral;
+    background-color: lightslategrey;
     color: white;
     padding: 10px 0;
     margin-top: 30px;
     max-height: 30px;
+    align-content: center;
 }
 
 #opis {
@@ -46,18 +44,7 @@ footer {
     margin: auto;
 }
 
-header {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-size: 30px;
-}
-
 .tabla {
-    max-width: 1000px;
-    max-height: 300px;
-    border-style: double;
-    background-color: blueviolet;
-    border: red;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -66,14 +53,52 @@ header {
 .polje img {
     width: 100%;
     cursor: pointer;
-    flex-basis: 10px;
+    flex-basis: 100px;
+}
+
+#nova_igra {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 25px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: lightcoral;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
 }
 
 #dugmeBoja {
-    font-size: 15px;
-    color: black;
-    border: 2px solid black;
-    box-sizing: border-box;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 25px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: lightgreen;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+#dugmeBoja:active {
+    background-color: green;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#nova_igra:active {
+    background-color: coral;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#nova_igra:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 #dugmeBoja:hover {
